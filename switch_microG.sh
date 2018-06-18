@@ -32,6 +32,12 @@ case "$1" in
     ;;
 
   oms) 
+    BRANCH1="cm-14.1-oms"
+    BRANCH2="cm-14.1-oms"
+    BRANCH3="cm-14.1"    
+   ;;
+
+  mG-oms)
     BRANCH1="cm-14.1-mG-oms"
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1-microG"    
@@ -44,7 +50,12 @@ case "$1" in
    ;;
 
   *) 
-    echo "usage: switch_microg default|microG|oms"
+    echo "usage: switch_microg default|microG|oms|mG-oms"
+    echo "-"
+    echo "  default - cm-14.1 reference build (with patches)"
+    echo "  microG  - hardened microG build"
+    echo "  oms     - Substratum-enabled w/o microG & hardening"
+    echo "  mG-oms  - Substratum-enabled WITH microG & hardening"
     exit
    ;;   
 esac
