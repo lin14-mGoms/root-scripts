@@ -73,7 +73,7 @@ switch_branches $BRANCH1 .repo/local_manifests
 
 switch_branches $BRANCH2 packages/apps/Contacts
 switch_branches $BRANCH2 packages/apps/ContactsCommon
-switch_branches $BRANCH2 packages/apps/Dialer
+switch_branches $BRANCH1 packages/apps/Dialer
 switch_branches $BRANCH2 packages/apps/ExactCalculator
 switch_branches $BRANCH2 packages/apps/PackageInstaller
 switch_branches $BRANCH2 packages/apps/PhoneCommon
