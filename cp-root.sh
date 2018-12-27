@@ -4,6 +4,7 @@
 
 copy_files() {
 cat <<EOF
+build_amami.sh
 build_falcon.sh
 build_gts210ltexx.sh
 build_osprey.sh
