@@ -29,24 +29,28 @@ case "$1" in
      BRANCH1="cm-14.1-microG"
      BRANCH2="cm-14.1"
      BRANCH3="cm-14.1-microG"
+     BRANCH4="mse_v4"
     ;;
 
   oms) 
     BRANCH1="cm-14.1-oms"
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1"    
+    BRANCH4="mse_v2"
    ;;
 
   mG-oms)
     BRANCH1="cm-14.1-mG-oms"
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1-microG"    
+    BRANCH4="mse_v4"
    ;;
 
   default) 
     BRANCH1="cm-14.1"
     BRANCH2="cm-14.1"  
     BRANCH3="cm-14.1"
+    BRANCH4="mse_v2"
    ;;
 
   *) 
@@ -77,6 +81,8 @@ switch_branches $BRANCH1 packages/apps/Dialer
 switch_branches $BRANCH2 packages/apps/ExactCalculator
 switch_branches $BRANCH2 packages/apps/PackageInstaller
 switch_branches $BRANCH2 packages/apps/PhoneCommon
+
+switch_branches $BRANCH4 kernel/samsung/gts2
 
 switch_zpatch $BRANCH1 S
 
