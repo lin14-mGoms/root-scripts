@@ -74,6 +74,7 @@ switch_branches $BRANCH3 packages/apps/SetupWizard
 switch_branches $BRANCH1 system/sepolicy
 switch_branches $BRANCH1 vendor/cm
 switch_branches $BRANCH1 .repo/local_manifests
+switch_branches $BRANCH1 OTA
 
 switch_branches $BRANCH2 packages/apps/Contacts
 switch_branches $BRANCH2 packages/apps/ContactsCommon
