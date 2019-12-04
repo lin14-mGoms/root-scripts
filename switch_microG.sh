@@ -29,24 +29,28 @@ case "$1" in
      BRANCH1="cm-14.1-microG"
      BRANCH2="cm-14.1"
      BRANCH3="cm-14.1-microG"
+     BRANCH4="cm-14.1-microG"
     ;;
 
   oms) 
     BRANCH1="cm-14.1-oms"
     BRANCH2="cm-14.1-oms"
-    BRANCH3="cm-14.1"    
+    BRANCH3="cm-14.1"
+    BRANCH4="cm-14.1-microG"
    ;;
 
   mG-oms)
     BRANCH1="cm-14.1-mG-oms"
     BRANCH2="cm-14.1-oms"
-    BRANCH3="cm-14.1-microG"    
+    BRANCH3="cm-14.1-microG"
+    BRANCH4="cm-14.1-microG"
    ;;
 
   default) 
     BRANCH1="cm-14.1"
     BRANCH2="cm-14.1"  
     BRANCH3="cm-14.1"
+    BRANCH4="cm-14.1"
    ;;
 
   *) 
@@ -62,6 +66,7 @@ esac
 
 switch_zpatch $BRANCH1 R
 
+switch_branches $BRANCH4 external/iptables
 switch_branches $BRANCH3 external/sqlite
 switch_branches $BRANCH1 frameworks/base
 switch_branches $BRANCH1 frameworks/native
