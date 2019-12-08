@@ -30,6 +30,7 @@ case "$1" in
      BRANCH2="cm-14.1"
      BRANCH3="cm-14.1-microG"
      BRANCH4="cm-14.1-microG"
+     SW_PTCH="S"
     ;;
 
   oms) 
@@ -37,6 +38,7 @@ case "$1" in
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1"
     BRANCH4="cm-14.1-microG"
+    SW_PTCH="S"
    ;;
 
   mG-oms)
@@ -44,22 +46,33 @@ case "$1" in
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1-microG"
     BRANCH4="cm-14.1-microG"
+    SW_PTCH="S"
    ;;
 
   default) 
     BRANCH1="cm-14.1"
     BRANCH2="cm-14.1"  
     BRANCH3="cm-14.1"
+    BRANCH4="cm-14.1-microG"
+    SW_PTCH="S"
+   ;;
+
+  reference) 
+    BRANCH1="cm-14.1"
+    BRANCH2="cm-14.1"  
+    BRANCH3="cm-14.1"
     BRANCH4="cm-14.1"
+    SW_PTCH="X"
    ;;
 
   *) 
     echo "usage: switch_microg default|microG|oms|mG-oms"
     echo "-"
-    echo "  default - cm-14.1 reference build (with patches)"
-    echo "  microG  - hardened microG build"
-    echo "  oms     - Substratum-enabled w/o microG & hardening"
-    echo "  mG-oms  - Substratum-enabled WITH microG & hardening"
+    echo "  reference - To synchronize the repository"
+    echo "  default   - cm-14.1 reference build (with patches)"
+    echo "  microG    - hardened microG build"
+    echo "  oms       - Substratum-enabled w/o microG & hardening"
+    echo "  mG-oms    - Substratum-enabled WITH microG & hardening"
     exit
    ;;   
 esac
@@ -72,7 +85,7 @@ switch_branches $BRANCH1 frameworks/base
 switch_branches $BRANCH1 frameworks/native
 switch_branches $BRANCH1 packages/apps/Settings
 switch_branches $BRANCH3 packages/apps/SetupWizard
-switch_branches $BRANCH3 system/netd
+switch_branches $BRANCH4 system/netd
 switch_branches $BRANCH1 system/sepolicy
 switch_branches $BRANCH1 vendor/cm
 switch_branches $BRANCH1 .repo/local_manifests
@@ -85,5 +98,5 @@ switch_branches $BRANCH2 packages/apps/ExactCalculator
 switch_branches $BRANCH2 packages/apps/PackageInstaller
 switch_branches $BRANCH2 packages/apps/PhoneCommon
 
-switch_zpatch $BRANCH1 S
+switch_zpatch $BRANCH1 $SW_PTCH
 
