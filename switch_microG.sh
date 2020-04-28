@@ -5,7 +5,7 @@ switch_branches() {
   cd $2
   echo "-"
   echo "$PWD"
-  git checkout $1
+  git checkout $1 && git pull github $1
   cd $TOPDIR
 }
 
