@@ -85,6 +85,7 @@ switch_branches $BRANCH1 frameworks/base
 switch_branches $BRANCH1 frameworks/native
 switch_branches $BRANCH1 packages/apps/Settings
 switch_branches $BRANCH3 packages/apps/SetupWizard
+switch_branches $BRANCH4 system/core
 switch_branches $BRANCH4 system/netd
 switch_branches $BRANCH1 system/sepolicy
 switch_branches $BRANCH1 vendor/cm
