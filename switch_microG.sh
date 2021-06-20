@@ -14,18 +14,18 @@ switch_zpatch() {
   cd z_patches
   echo "-"
   echo "$PWD"
-  case "$2" in 
+  case "$2" in
     R) ./patches_reverse.sh
        git checkout $1
        ;;
-    S) ./patches_apply.sh  
+    S) ./patches_apply.sh
        ;;
   esac
   cd $TOPDIR
 }
 
 case "$1" in
-  microG) 
+  microG)
      BRANCH1="cm-14.1-microG"
      BRANCH2="cm-14.1"
      BRANCH3="cm-14.1-microG"
@@ -33,7 +33,7 @@ case "$1" in
      SW_PTCH="S"
     ;;
 
-  oms) 
+  oms)
     BRANCH1="cm-14.1-oms"
     BRANCH2="cm-14.1-oms"
     BRANCH3="cm-14.1"
@@ -49,23 +49,23 @@ case "$1" in
     SW_PTCH="S"
    ;;
 
-  default) 
+  default)
     BRANCH1="cm-14.1"
-    BRANCH2="cm-14.1"  
+    BRANCH2="cm-14.1"
     BRANCH3="cm-14.1"
     BRANCH4="cm-14.1-microG"
     SW_PTCH="S"
    ;;
 
-  reference) 
+  reference)
     BRANCH1="cm-14.1"
-    BRANCH2="cm-14.1"  
+    BRANCH2="cm-14.1"
     BRANCH3="cm-14.1"
     BRANCH4="cm-14.1"
     SW_PTCH="X"
    ;;
 
-  *) 
+  *)
     echo "usage: switch_microg default|microG|oms|mG-oms"
     echo "-"
     echo "  reference - To synchronize the repository"
@@ -74,11 +74,12 @@ case "$1" in
     echo "  oms       - Substratum-enabled w/o microG & hardening"
     echo "  mG-oms    - Substratum-enabled WITH microG & hardening"
     exit
-   ;;   
+   ;;
 esac
 
 switch_zpatch $BRANCH1 R
 
+switch_branches $BRANCH4 external/ffmpeg
 switch_branches $BRANCH4 external/iptables
 switch_branches $BRANCH3 external/sqlite
 switch_branches $BRANCH1 frameworks/base
