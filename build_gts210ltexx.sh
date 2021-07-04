@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Own Values
-export CCACHE_DIR=~/android/.ccache14
+export LC_ALL=C
+export CCACHE_DIR=~/out-android/.ccache
 export OUT_DIR_COMMON_BASE=~/out-android
 
 # Use pre-defined build script
